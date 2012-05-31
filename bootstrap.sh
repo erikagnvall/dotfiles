@@ -2,6 +2,6 @@ mkdir bundle
 
 while read line        
 do        
-	`git clone $line`
+	git clone $line bundle/
 done <plugins
 	
