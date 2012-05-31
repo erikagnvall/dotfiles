@@ -1,5 +1,7 @@
+mkdir bundle
+
 while read line        
 do        
-	echo $line       
+	`git clone $line`
 done <plugins
 	
