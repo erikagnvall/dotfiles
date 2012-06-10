@@ -73,14 +73,14 @@
 	set cursorline					" Highlight current line.
 
 	let g:Powerline_symbols = 'fancy' " Fancy stuff for powerline plugin
+	set laststatus=2				" Always show statusline
 
 	" Not needed now when powerline is used
 	" if has('statusline')
-		set laststatus=2									" Always show statusline
+	"     set laststatus=2									" Always show statusline
 	"     set statusline=										" Empty status line
 	"     set statusline+=%n									" Buffer number
 	"     set statusline+=\ [%{getcwd()}]						" Current working directory
-	"     "set statusline+=\ %1*[%<%t]%*						" File name
 	"     set statusline+=\ %1*[%<%f]%*						" File name
 	"     set statusline+=%1*%w%h%m%r%*						" Display [preview window|modified|help buffer|read only]
 	"     set statusline+=\ %1*%{fugitive#statusline()}%*		" Display current git branch
