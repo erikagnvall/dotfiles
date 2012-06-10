@@ -1,0 +1,12 @@
+# Parse out the svn revision if we're in an svn repo
+parse_svn() {
+	svn info 2> /dev/null | sed -e '/Revision: [0-9]*/!d' -e 's/Revision: \([0-9]*\)$/ \(r\1\)/'
+}
+ 
+# Parse out current git branch name if we're in a git repo
+parse_git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \(\1\)/'
+}
+
+# Set the promt to "[user@host:current working dir [purple color](ev. git branch)(ev. svn revision)[black color]$ "
+PS1='[\u@\h:\w\[\033[00;35m\]$(parse_git_branch)$(parse_svn)\[\033[00m\]]$ '

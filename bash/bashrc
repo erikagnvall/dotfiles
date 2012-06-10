@@ -1,0 +1,39 @@
+# make Terminal.app display colors
+export CLICOLOR=1
+export LSCOLORS=Exfxcxdxbxegedabagacad
+
+# some paths
+export PATH=/usr/local/share/python:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:/Applications/android-sdk/platform-tools:/Applications/android-sdk/tools:$PATH
+export PATH=~/bin:$PATH
+
+# Path for node.js
+export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
+
+# editor for svn and git commits
+export EDITOR='mvim -v'
+
+# load rvm into shell session, the second line if user install
+# and the first line if system wide install
+# [[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm"  # This loads RVM into a shell session.
+[[ -s "/Users/erik/.rvm/scripts/rvm" ]] && source "/Users/erik/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+
+# Include git bash completion
+if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+	. /usr/local/etc/bash_completion.d/git-completion.bash
+fi
+
+# Include tmux bash completion
+if [ -f /usr/local/etc/bash_completion.d/tmux ]; then
+	. /usr/local/etc/bash_completion.d/tmux
+fi
+
+# Include my aliases
+if [ -f ~/.bash_aliases ]; then
+	. ~/.bash_aliases
+fi
+
+# Include promt settings
+if [ -f ~/.bash_ps1 ]; then
+	. ~/.bash_ps1
+fi
