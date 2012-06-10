@@ -9,3 +9,4 @@ git://github.com/scrooloose/syntastic.git
 git://github.com/altercation/vim-colors-solarized.git
 git://github.com/rstacruz/sparkup.git
 git://github.com/majutsushi/tagbar.git
+git://github.com/Lokaltog/vim-powerline.git

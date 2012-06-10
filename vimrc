@@ -6,9 +6,9 @@
 " General {{
 	set nocompatible						" Don't be compatible with old Vim
 
-	filetype plugin indent on				" Enable file type specific stuff
-
 	call pathogen#infect()					" Pathogen requirements
+
+	filetype plugin indent on				" Enable file type specific stuff
 
 	set undofile							" Use a file for undo
 	set undodir=~/.vim/undo/				" Save undo in the .vim folder
@@ -76,7 +76,7 @@
 
 	" Not needed now when powerline is used
 	" if has('statusline')
-	"     set laststatus=2									" Always show statusline
+		set laststatus=2									" Always show statusline
 	"     set statusline=										" Empty status line
 	"     set statusline+=%n									" Buffer number
 	"     set statusline+=\ [%{getcwd()}]						" Current working directory
