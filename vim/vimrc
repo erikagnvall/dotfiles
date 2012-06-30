@@ -94,7 +94,7 @@
 
 	" Set font according to system
 	if has("mac")
-		set gfn=Inconsolata:h14
+		set gfn=Inconsolata\ for\ Powerline\ 13
 		set shell=/bin/bash
 	elseif has("linux")
 		set gfn=Monospace\ 12
@@ -161,6 +161,10 @@
 		let g:NERDTreeMouseMode=3			" Single click opens folders and files.
 		let g:NERDTreeQuitOnOpen=1			" Close tree after open.
 	" }}
+
+	" Solarized {{
+		call togglebg#map("<F5>")
+	" }}
 " }}
 
 " Mappings {{
@@ -209,6 +213,15 @@
 	nnoremap <Leader>c :set cursorline!<CR>
 
 	nnoremap <silent> <F3> :TlistToggle<CR>
+
+	map <up> <nop>
+	map <down> <nop>
+	map <left> <nop>
+	map <right> <nop>
+	imap <up> <nop>
+	imap <down> <nop>
+	imap <left> <nop>
+	imap <right> <nop>
 " }}
 
 " Soure local {{
