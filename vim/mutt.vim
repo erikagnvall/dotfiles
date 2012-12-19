@@ -28,7 +28,7 @@ function! MailStripSig()
 endfunction
 
 " Wrap long lines.
-set textwidth=80
+set textwidth=81
 " Color the 80th column.
 execute "set colorcolumn=" . &textwidth
 " Auto format text.
