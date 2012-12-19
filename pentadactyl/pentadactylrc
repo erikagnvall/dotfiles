@@ -1,0 +1,4 @@
+" vi: set ft=vim :
+
+set go+=T
+colorscheme solarized-light
