@@ -19,6 +19,7 @@
 	set ttyfast								" Smoother scrolling
 
 	set encoding=utf-8						" Use Unicode inside Vim's registers, viminfo, buffers ...
+	set fileencoding=utf-8					" Use Unicode when saving files.
 
 	set spelllang=en,sv
 	set spell
@@ -131,7 +132,10 @@
 		autocmd bufwritepost .vimrc source ~/.vimrc
 
 		" Set specific stuff for C-files
-		autocmd FileType c,cpp setlocal softtabstop=8 tabstop=8 shiftwidth=8 noexpandtab colorcolumn=80
+		autocmd FileType c,cpp setlocal softtabstop=8 tabstop=8 shiftwidth=8 noexpandtab colorcolumn=81
+
+		" Set specifit stuff for Java-files
+		autocmd FileType java setlocal colorcolumn=120
 
 		" Set some nice text wrap stuff for markdown and text files
 		autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal wrap wrapmargin=2 textwidth=72
@@ -147,8 +151,8 @@
 		autocmd FileType make setlocal noexpandtab
 
 		" Specific stuff for LaTeX-files.
-		" autocmd FileType tex,plaintex setlocal wrap wrapmargin=2 textwidth=120 spell formatoptions+=l
-		autocmd FileType tex setlocal wrap linebreak textwidth=0 wrapmargin=0
+		autocmd FileType tex,plaintex setlocal wrap wrapmargin=2 textwidth=80 spell formatoptions+=l
+		" autocmd FileType tex setlocal wrap linebreak textwidth=0 wrapmargin=0
 
 		autocmd BufRead,BufNewFile .vimperatorrc set ft=vim
 
@@ -164,6 +168,20 @@
 
 	" Solarized {{
 		call togglebg#map("<F5>")
+	" }}
+
+	" Tagbar {{
+		nmap <silent> <F3> :TagbarOpenAutoClose<CR>
+	" }}
+
+	" Sparkup {{
+		let g:sparkupExecuteMapping='<c-w>'
+	" }}
+
+	" Syntastic {{
+		let g:syntastic_java_javac_classpath = '/Users/erik/Dropbox/lth/d4/edin01/project1/program'
+		let g:syntastic_python_checker = 'pylint'
+		let g:syntastic_python_checker_args = '-E'
 	" }}
 " }}
 
@@ -198,21 +216,24 @@
 	nmap <Space> :
 	" Edit vimrc.
 	nmap <leader>e :tabe $MYVIMRC<CR>
+	" Map <F6> to toogle showing white space
+	" nnoremap <silent> <F7> :set list! listchars=tab:\ \ ,trail:·<CR>
+	nmap <silent> <F6> :set list! listchars=tab:»·,eol:$,trail:·<CR>
 
 	" cmap:
 	" Inserts the path of the currently edited file into a command
 	" Command mode: Ctrl+P
-	cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+	" cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 	" nnoremap:
-	" Map <F7> to toogle showing white space
-	nnoremap <silent> <F7> :set list! listchars=tab:\ \ ,trail:·<CR>
-	" Map <F6> to StripTrailingWhitespaces function (see Functions below).
-	nnoremap <silent> <F6> :call <SID>StripTrailingWhitespaces()<CR>
+	nnoremap <leader>g :GundoToggle<CR>
+	" Map <F7> to StripTrailingWhitespaces function (see Functions below).
+	nnoremap <silent> <F7> :call <SID>StripTrailingWhitespaces()<CR>
 	" Map <Leader>c to toggle highlighting of the cursor line
+	" TODO find a better mapping since this conflicts somewhat with
+	" NerdCommenter
 	nnoremap <Leader>c :set cursorline!<CR>
-
-	nnoremap <silent> <F3> :TlistToggle<CR>
+	nnoremap <leader>a :Ack
 
 	map <up> <nop>
 	map <down> <nop>
@@ -222,6 +243,15 @@
 	imap <down> <nop>
 	imap <left> <nop>
 	imap <right> <nop>
+
+	" Map Ctrl+/ to clear search highlight (stolen from https://github.com/erikw/dotfiles/blob/personal/.vimrc).
+	nmap <silent> <C-_> :nohlsearch<CR>
+
+	" Map F4 to search and replace /* Some text */ to // Some text
+	nmap <F4> :%s/\/\*\(.*\)\*\//\/\/\1/gc<CR>
+
+	" Map F8 to running ant install
+	nmap <F8> :!ant launch<CR>
 " }}
 
 " Soure local {{
