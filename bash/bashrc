@@ -28,6 +28,11 @@ if [ -f /usr/local/etc/bash_completion.d/tmux ]; then
 	. /usr/local/etc/bash_completion.d/tmux
 fi
 
+# Include ack bash completion
+if [ -f /usr/local/etc/bash_completion.d/ack.bash_completion.sh ]; then
+	. /usr/local/etc/bash_completion.d/ack.bash_completion.sh
+fi
+
 # Include my aliases
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
