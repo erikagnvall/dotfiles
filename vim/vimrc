@@ -58,7 +58,7 @@
 	set showmatch					" Shortly jump to a matching bracket when found a match.
 
 	syntax enable					" Enable syntax highlighting
-	set background=light			" Set background to dark
+	set background=dark				" Set background to dark
 	color solarized					" for Solarized theme
 
 	set tabpagemax=32				" Set max limit of number of tabs
