@@ -14,3 +14,4 @@ git://github.com/godlygeek/tabular.git
 git://github.com/mileszs/ack.vim.git
 git://github.com/tpope/vim-surround.git
 git://github.com/sjl/gundo.vim.git
+git://github.com/tpope/vim-rails.git
