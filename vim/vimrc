@@ -135,7 +135,7 @@
 		autocmd FileType c,cpp setlocal softtabstop=8 tabstop=8 shiftwidth=8 noexpandtab colorcolumn=81
 
 		" Set specifit stuff for Java-files
-		autocmd FileType java setlocal colorcolumn=120
+		autocmd FileType java setlocal colorcolumn=100 tw=100
 
 		" Set some nice text wrap stuff for markdown and text files
 		autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal wrap wrapmargin=2 textwidth=72
