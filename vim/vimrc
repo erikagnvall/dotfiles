@@ -132,7 +132,9 @@
 		autocmd bufwritepost .vimrc source ~/.vimrc
 
 		" Set specific stuff for C-files
-		autocmd FileType c,cpp setlocal softtabstop=8 tabstop=8 shiftwidth=8 noexpandtab colorcolumn=81
+		autocmd FileType c setlocal softtabstop=8 tabstop=8 shiftwidth=8 noexpandtab colorcolumn=81
+		autocmd FileType cpp setlocal softtabstop=4 tabstop=4 shiftwidth=4 noexpandtab colorcolumn=81
+		autocmd Syntax cpp call EnhanceCppSyntax()
 
 		" Set specifit stuff for Java-files
 		autocmd FileType java setlocal colorcolumn=100 tw=100
@@ -275,5 +277,10 @@ function! <SID>StripTrailingWhitespaces()
 	call cursor(l, c)
 endfunction
 
+" Add highlighting for function definition in C++
+function! EnhanceCppSyntax()
+	syn match cppFuncDef "::\~\?\zs\h\w*\ze([^)]*\()\s*\(const\)\?\)\?$"
+	hi def link cppFuncDef Special
+endfunction
 " }}
 
