@@ -16,3 +16,5 @@
 	status      = auto
 [core]
 	editor      = mvim -v
+[push]
+	default = simple
