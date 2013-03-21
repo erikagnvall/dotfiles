@@ -1,0 +1,18 @@
+[user]
+	name        = Erik Jansson
+	email       = erikjansson90@gmail.com
+[alias]
+	st          = status
+	ci          = commit
+	br          = branch
+	co          = checkout
+	unstage     = reset HEAD
+	lol         = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola        = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[color]
+	branch      = auto
+	diff        = auto
+	interactive = auto
+	status      = auto
+[core]
+	editor      = mvim -v
