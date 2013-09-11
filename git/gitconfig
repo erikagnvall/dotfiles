@@ -7,8 +7,12 @@
 	br          = branch
 	co          = checkout
 	unstage     = reset HEAD
+	ds          = diff --staged
+	ls          = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
 	lol         = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola        = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	standup     = log --since '1 day ago' --oneline --author erikjansson90@gmail.com
+	graph       = log --graph --pretty=format':%C(auto)%h%C(auto)%d%Creset %s %C(green) [%an], %ar%Creset' --all
 [color]
 	branch      = auto
 	diff        = auto
