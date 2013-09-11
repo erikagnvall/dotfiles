@@ -94,13 +94,13 @@
 	" endif
 
 	" Set font according to system
-	if has("mac")
-		set gfn=Inconsolata\ for\ Powerline\ 13
-		set shell=/bin/bash
-	elseif has("linux")
-		set gfn=Monospace\ 12
-		set shell=/bin/bash
-	endif
+	" if has("mac")
+	"     set gfn=Inconsolata\ for\ Powerline\ 13
+	"     set shell=/bin/bash
+	" elseif has("linux")
+	"     set gfn=Monospace\ 12
+	"     set shell=/bin/bash
+	" endif
 " }}
 
 " Searching {{
@@ -155,6 +155,8 @@
 		" Specific stuff for LaTeX-files.
 		autocmd FileType tex,plaintex setlocal wrap wrapmargin=2 textwidth=80 spell formatoptions+=l
 		" autocmd FileType tex setlocal wrap linebreak textwidth=0 wrapmargin=0
+
+		autocmd FileType rfc setlocal wrap wrapmargin=2 textwidth=72 spell formatoptions+=l colorcolumn=73 softtabstop=3 tabstop=3 shiftwidth=3 expandtab
 
 		autocmd BufRead,BufNewFile .vimperatorrc set ft=vim
 
@@ -236,6 +238,9 @@
 	" NerdCommenter
 	nnoremap <Leader>c :set cursorline!<CR>
 	nnoremap <leader>a :Ack
+	nnoremap <leader>p :set paste!<CR>
+	nnoremap <leader>t4 :set noexpandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
+	nnoremap <leader>t8 :set noexpandtab tabstop=8 shiftwidth=8 softtabstop=8<CR>
 
 	map <up> <nop>
 	map <down> <nop>
