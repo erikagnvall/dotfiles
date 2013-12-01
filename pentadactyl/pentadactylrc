@@ -1,4 +1,49 @@
-" vi: set ft=vim :
+" Modeline {{
+"	 vi: foldmarker={{,}} foldmethod=marker foldlevel=0: tabstop=4: filetype=vim:
+" }}
 
-set go+=T
-colorscheme solarized-light
+" UI {{
+	" Solarized ❤
+	colorscheme solarized-light
+
+	" Fancy funny title string
+	set titlestring="Firefox ❤  Vim"
+
+	" Always show status line
+	set go+=s
+
+	" Default timeout before following highlighted link
+	set hinttimeout=1200
+
+	" Show what mode you are in.
+	set showmode=caret,output_multiline,!normal,base,operator
+" }}
+
+" Searching {{
+	set hlfind
+	set incfind
+
+	" TODO Doesn't work, find out why
+	" set defsearch="duckduckgo"
+	" set suggestengines="duckduckgo"
+" }}
+
+" Custom mappings {{
+	" I like this. Get used to it.
+	map <Space> :
+
+	" Shortcut to google
+	map go :tabopen google
+
+	" Mapping to remove search highlight
+	map <silent> <C-/> :nohlfind<CR>
+
+	" Go back in tabs
+	map -builtin <Left> gT
+
+	" Go forward in tabs
+	map -builtin <Right> gt
+" }}
+
+" Custom commands
+command -desc "Read later on Pocket" pocket :open pocket
