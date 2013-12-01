@@ -1,0 +1,72 @@
+set from = "erikjansson90@gmail.com"
+set realname = "Erik Jansson"
+
+set editor = "mvim -v --cmd 'let mutt_mode=1'"
+set charset = "utf-8"
+set send_charset = "utf-8:iso-8859-1"
+set signature="~/.mutt.sign"
+set wrapmargin = 80 # wrap margins 80 columns from the left
+unset markers # remove + on line breaks
+set smart_wrap # wrap lines intelligently
+
+# Basic config, you can leave this as is
+set mbox_type = Maildir				# Mailbox type.
+set folder = ~/.mail				# Mail root folder.
+set spoolfile = "+inbox"			# Inbox.
+set mbox = "+archive"				# mbox archive.
+set postponed = "+drafts"			# Drafts folder.
+set indent_string = '>'
+set fast_reply
+set check_new					# Check open mailboxes for new mails.
+set mail_check = 0				# Check for mail always (in seconds).
+#set timeout = 300
+#set postponed = "+[Gmail]/Drafts"
+set envelope_from=yes
+unset record					# Required to prevent duplicates in +sent.
+set query_command="goobook query '%s'"
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+set delete					# Don't ask, just do
+unset confirmappend
+set index_format="%4C %Z %{%Y-%m-%d} %-15.15L (%?l?%4l&%4c?) %s"
+set move = no
+set include
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+set auto_tag = yes
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+alternative_order text/plain text/html *
+auto_view text/html
+bind editor <Tab> complete-query
+bind editor ^T complete
+bind editor <space> noop
+
+source ~/src/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc
+
+macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
+macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+
+
+macro index,pager	\eg	"<group-reply>"
+
+# Crypt {{
+	source ~/.muttrc.gpg # Use GnuPG commands. Original is in /usr/share/doc/packages/mutt/samples/gpg.rc
+	set pgp_sign_as=CC311E26 # Default ID to sign with.
+	set crypt_autosmime # Use S/MIME format.
+	unset crypt_autosign # Don't sign all outgoing messages.
+	unset crypt_autoencrypt # Don't encrypt all outgoing messages.
+	set crypt_replysign # Sign replies to encrypted messages.
+	set crypt_replyencrypt # Encrypt replies to encrypted messages.
+	set crypt_replysignencrypted # Encrypt and sign replies to encrypted and signed messages.
+	set crypt_timestamp # Include a time stamp.
+	set crypt_verify_sig # Try to verify signatures.
+	#set pgp_mime_signature_filename="signature.asc" # Name signature file. Requires Vineet Kumar's patch.
+	#set pgp_mime_signature_description="Digital signature" # Signature description. Requires Vineet Kumar's patch.
+	set pgp_timeout=600 # Number of seconds the an enetered passphrase will be remembered.
+# }}
