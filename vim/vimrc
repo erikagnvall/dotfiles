@@ -156,7 +156,12 @@
 		autocmd FileType tex,plaintex setlocal wrap wrapmargin=2 textwidth=80 spell formatoptions+=l
 		" autocmd FileType tex setlocal wrap linebreak textwidth=0 wrapmargin=0
 
+		autocmd FileType html setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
+
 		autocmd FileType rfc setlocal wrap wrapmargin=2 textwidth=72 spell formatoptions+=l colorcolumn=73 softtabstop=3 tabstop=3 shiftwidth=3 expandtab
+
+		autocmd FileType haskell setlocal tabstop=4 expandtab softtabstop=4 shiftwidth=4 smarttab shiftround nojoinspaces
+		autocmd FileType lhaskell setlocal tabstop=4 expandtab softtabstop=4 shiftwidth=4 smarttab shiftround nojoinspaces colorcolumn=80 textwidth=80
 
 		autocmd BufRead,BufNewFile .vimperatorrc set ft=vim
 
