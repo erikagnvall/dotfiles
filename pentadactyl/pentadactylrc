@@ -33,7 +33,7 @@
 	map <Space> :
 
 	" Shortcut to google
-	map go :tabopen google
+	map go :tabopen google 
 
 	" Mapping to remove search highlight
 	map <silent> <C-/> :nohlfind<CR>
