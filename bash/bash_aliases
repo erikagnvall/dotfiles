@@ -1,7 +1,5 @@
 # ssh aliases
 alias sshm='ssh -p 27148 meldanya.se'
-alias sshdsek='ssh meldanya@snejk.dsek.lth.se'
-alias sshlth='ssh dt09ej7@login.student.lth.se'
 
 # mac specific aliases
 alias enabledashboard='defaults write com.apple.dashboard mcx-disabled -boolean NO'
@@ -12,7 +10,6 @@ alias hibernate='sudo pmset -a hibernatemode'
 alias listhibernate='sudo pmset -g | grep hibernatemode'
 
 # shortcut commands
-alias vim='mvim -v'
 alias vi='vim'
 alias sorted_du="du -sk * | sort -nr | cut -f2 | tr '\n' '\0' | xargs -0 du -sh"
 alias pgrep="ps aux | grep"
