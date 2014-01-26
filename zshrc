@@ -33,13 +33,16 @@ source $ZSH/oh-my-zsh.sh
 
 # Customization
 
+set -o vi
+
 # Stuff before default $PATH:
 PATH=$HOME/bin:$HOME/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
+PATH=$PATH:/usr/texbin
 # Stuff after default $PATH:
 PATH=$PATH:/usr/local/lib/python2.7/site-packages # Stuff installed by PIP
 PATH=$PATH:/usr/local/share/npm/bin # Stuff installed by NPM
-PATH=$PATH:/Applications/android-sdk/platform-tools:/Applications/android-sdk/tools # Android SDK
-export PATH=$PATH:$HOME/src/powerline/scripts/ # Powerline executable
+PATH=$PATH:$HOME/local/android-sdk/platform-tools:$HOME/local/android-sdk/tools # Android SDK
+export PATH=$PATH:$HOME/src/powerline/scripts # Powerline executable
 
 export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
 export ANDROID_HOME=/Applications/android-sdk
@@ -52,7 +55,7 @@ export GOPATH=$HOME/Documents/programming/go
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 # Some variables
-export EDITOR='mvim -v'
+export EDITOR='vim'
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
