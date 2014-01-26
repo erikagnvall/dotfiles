@@ -19,6 +19,6 @@
 	interactive = auto
 	status      = auto
 [core]
-	editor      = mvim -v
+	editor      = vim
 [push]
 	default = simple
