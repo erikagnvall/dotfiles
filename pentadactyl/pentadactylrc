@@ -10,7 +10,7 @@
 	set titlestring="Firefox ❤  Vim"
 
 	" Always show status line
-	set go+=s
+	set guioptions+=mT
 
 	" Default timeout before following highlighted link
 	set hinttimeout=1200
@@ -31,9 +31,6 @@
 " Custom mappings {{
 	" I like this. Get used to it.
 	map <Space> :
-
-	" Shortcut to google
-	map go :tabopen google 
 
 	" Mapping to remove search highlight
 	map <silent> <C-/> :nohlfind<CR>
