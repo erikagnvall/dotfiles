@@ -10,7 +10,7 @@
 	set titlestring="Firefox ❤  Vim"
 
 	" Always show status line
-	set guioptions+=mT
+	set guioptions+=smT
 
 	" Default timeout before following highlighted link
 	set hinttimeout=1200
