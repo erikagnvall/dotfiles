@@ -18,20 +18,11 @@
 
 	set ttyfast								" Smoother scrolling
 
-	set encoding=utf-8						" Use Unicode inside Vim's registers, viminfo, buffers ...
-	set fileencoding=utf-8					" Use Unicode when saving files.
+	set encoding=utf8						" Use Unicode inside Vim's registers, viminfo, buffers ...
+	set fileencoding=utf8					" Use Unicode when saving files.
 
 	set spelllang=en,sv
 	set spell
-
-	if !has('gui_running')
-		if !has('win32') && !has('win64')
-			set term=$TERM                  " Make arrow and other keys work.
-		endif
-		if &l:term  =~ "screen.*"
-			set ttymouse=xterm2             " Needed for mouse support inside GNU Screen.
-		endif
-	endif
 
 	set nrformats=alpha,octal,hex			" What to increment/decrement with ^A and ^X"
 
@@ -73,34 +64,9 @@
 
 	set cursorline					" Highlight current line.
 
-	let g:Powerline_symbols = 'fancy' " Fancy stuff for powerline plugin
+	let g:airline_powerline_fonts = 1
 	set laststatus=2				" Always show statusline
 
-	" Not needed now when powerline is used
-	" if has('statusline')
-	"     set laststatus=2									" Always show statusline
-	"     set statusline=										" Empty status line
-	"     set statusline+=%n									" Buffer number
-	"     set statusline+=\ [%{getcwd()}]						" Current working directory
-	"     set statusline+=\ %1*[%<%f]%*						" File name
-	"     set statusline+=%1*%w%h%m%r%*						" Display [preview window|modified|help buffer|read only]
-	"     set statusline+=\ %1*%{fugitive#statusline()}%*		" Display current git branch
-	"     set statusline+=%=									" Everything below is at right side
-	"     set statusline+=%1*%y%*								" File type
-	"     set statusline+=\ [%-3.(%l/%L]:%c%)\ %p%%			" Display [current_line_number/total_line_numbers]:current_col percentage
-
-	"     " Color for status line
-	"     "hi User1 term=bold,reverse cterm=bold,reverse gui=bold,reverse ctermfg=6 ctermbg=7 guifg=#a7dfff guibg=#333333
-	" endif
-
-	" Set font according to system
-	" if has("mac")
-	"     set gfn=Inconsolata\ for\ Powerline\ 13
-	"     set shell=/bin/bash
-	" elseif has("linux")
-	"     set gfn=Monospace\ 12
-	"     set shell=/bin/bash
-	" endif
 " }}
 
 " Searching {{
@@ -122,8 +88,6 @@
 	set shiftwidth=4
 	set softtabstop=4
 	set noexpandtab
-	" Show a · if there are any whitespace at end of line
-	" set list listchars=tab:\ \ ,trail:·
 " }}
 
 " Autocmd {{
@@ -131,15 +95,13 @@
 		" reload vimrc when saving it
 		autocmd bufwritepost .vimrc source ~/.vimrc
 
-		" Set specific stuff for C-files
 		autocmd FileType c setlocal softtabstop=8 tabstop=8 shiftwidth=8 noexpandtab colorcolumn=81
 		autocmd FileType cpp setlocal softtabstop=4 tabstop=4 shiftwidth=4 noexpandtab colorcolumn=81
 		autocmd Syntax cpp call EnhanceCppSyntax()
 
-		" Set specifit stuff for Java-files
 		autocmd FileType java setlocal colorcolumn=100 tw=100
 
-		" Set some nice text wrap stuff for markdown and text files
+		" wrap for markdown and text files
 		autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal wrap wrapmargin=2 textwidth=72
 		autocmd BufRead,BufNewFile *.txt setlocal wrap wrapmargin=2 textwidth=72
 
@@ -152,9 +114,7 @@
 		" make uses real hard tabs or it will break so make sure it's set
 		autocmd FileType make setlocal noexpandtab
 
-		" Specific stuff for LaTeX-files.
-		autocmd FileType tex,plaintex setlocal wrap wrapmargin=2 textwidth=80 spell formatoptions+=l
-		" autocmd FileType tex setlocal wrap linebreak textwidth=0 wrapmargin=0
+		autocmd FileType tex,plaintex setlocal wrap wrapmargin=2 textwidth=70 spell formatoptions+=l expandtab
 
 		autocmd FileType html setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
 
@@ -171,7 +131,6 @@
 
 " Plugins {{
 	" NERDTree {{
-		let g:NERDTreeMouseMode=3			" Single click opens folders and files.
 		let g:NERDTreeQuitOnOpen=1			" Close tree after open.
 	" }}
 
@@ -185,12 +144,11 @@
 
 	" Sparkup {{
 		let g:sparkupExecuteMapping='<c-w>'
+		let g:sparkupNextMapping='<c-m>'
 	" }}
 
 	" Syntastic {{
 		let g:syntastic_java_javac_classpath = '/Users/erik/Dropbox/lth/d4/edin01/project1/program'
-		let g:syntastic_python_checker = 'pylint'
-		let g:syntastic_python_checker_args = '-E'
 	" }}
 " }}
 
@@ -212,41 +170,41 @@
 
 	" Map F2 to show and hide NerdTree
 	map <F2> :NERDTreeToggle<CR>
-	"map <leader>e :e! ~/.vim_runtime/vimrc<cr>	" Fast editing of the .vimrc
 
 	" inoremap and imap:
-	" Replace left bracket with two and the cursor in between like in Eclipse
+	" smart brackets
 	inoremap {<CR>  {<CR>}<Esc>O
-	"map <leader>{ i{<CR>}<Esc>O
 
 	" nmap:
-	" Map space to colon. Don't place this comment on next line or it will
-	" break stuff
+	" Remap space.
 	nmap <Space> :
 	" Edit vimrc.
 	nmap <leader>e :tabe $MYVIMRC<CR>
 	" Map <F6> to toogle showing white space
-	" nnoremap <silent> <F7> :set list! listchars=tab:\ \ ,trail:·<CR>
 	nmap <silent> <F6> :set list! listchars=tab:»·,eol:$,trail:·<CR>
-
-	" cmap:
-	" Inserts the path of the currently edited file into a command
-	" Command mode: Ctrl+P
-	" cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+	" Map Ctrl+/ to clear search highlight (stolen from https://github.com/erikw/dotfiles/blob/personal/.vimrc).
+	nmap <silent> <C-_> :nohlsearch<CR>
+	" Map F4 to search and replace /* Some text */ to // Some text
+	nmap <F4> :%s/\/\*\(.*\)\*\//\/\/\1/gc<CR>
+	" Map F8 to running ant install
+	nmap <F8> :!ant launch<CR>
 
 	" nnoremap:
 	nnoremap <leader>g :GundoToggle<CR>
-	" Map <F7> to StripTrailingWhitespaces function (see Functions below).
+	" Shortcut to StripTrailingWhitespaces function (see Functions below).
 	nnoremap <silent> <F7> :call <SID>StripTrailingWhitespaces()<CR>
 	" Map <Leader>c to toggle highlighting of the cursor line
-	" TODO find a better mapping since this conflicts somewhat with
-	" NerdCommenter
 	nnoremap <Leader>c :set cursorline!<CR>
+	nnoremap <Leader>t :%s/\s\+$//g<CR>
 	nnoremap <leader>a :Ack
 	nnoremap <leader>p :set paste!<CR>
 	nnoremap <leader>t4 :set noexpandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
 	nnoremap <leader>t8 :set noexpandtab tabstop=8 shiftwidth=8 softtabstop=8<CR>
+    " This rewires n and N to a highlighing function.
+	nnoremap <silent> n   n:call HLNext(0.1)<cr>
+	nnoremap <silent> N   N:call HLNext(0.1)<cr>
 
+	" Turn off arrow keys.
 	map <up> <nop>
 	map <down> <nop>
 	map <left> <nop>
@@ -255,22 +213,6 @@
 	imap <down> <nop>
 	imap <left> <nop>
 	imap <right> <nop>
-
-	" Map Ctrl+/ to clear search highlight (stolen from https://github.com/erikw/dotfiles/blob/personal/.vimrc).
-	nmap <silent> <C-_> :nohlsearch<CR>
-
-	" Map F4 to search and replace /* Some text */ to // Some text
-	nmap <F4> :%s/\/\*\(.*\)\*\//\/\/\1/gc<CR>
-
-	" Map F8 to running ant install
-	nmap <F8> :!ant launch<CR>
-" }}
-
-" Soure local {{
-	" Include user's local vim config
-	"if filereadable(expand("~/.vimrc.local"))
-	"	source ~/.vimrc.local
-	"endif
 " }}
 
 " Functions {{
@@ -292,5 +234,19 @@ function! EnhanceCppSyntax()
 	syn match cppFuncDef "::\~\?\zs\h\w*\ze([^)]*\()\s*\(const\)\?\)\?$"
 	hi def link cppFuncDef Special
 endfunction
+
+
+" Highlight a search match in red...
+function! HLNext (blinktime)
+	let [bufnum, lnum, col, off] = getpos('.')
+	let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
+	let target_pat = '\c\%#'.@/
+	let ring = matchadd('IncSearch', target_pat, 101)
+	redraw
+	exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+	call matchdelete(ring)
+	redraw
+endfunction
+
 " }}
 
