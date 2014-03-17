@@ -43,3 +43,4 @@
 
 " Custom commands
 command -desc "Read later on Pocket" pocket :open pocket
+command -desc "Queue in Plex" plexit :open plexit
