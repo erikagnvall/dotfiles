@@ -23,7 +23,6 @@
 	set hlfind
 	set incfind
 
-	" TODO Doesn't work, find out why
 	" set defsearch="duckduckgo"
 	" set suggestengines="duckduckgo"
 " }}
