@@ -42,6 +42,7 @@ PATH=$PATH:/usr/texbin
 PATH=$PATH:/usr/local/lib/python2.7/site-packages # Stuff installed by PIP
 PATH=$PATH:/usr/local/share/npm/bin # Stuff installed by NPM
 PATH=$PATH:$HOME/local/android-sdk/platform-tools:$HOME/local/android-sdk/tools # Android SDK
+PATH=$PATH:$HOME/.cabal/bin # Cabal stuff
 export PATH=$PATH:$HOME/src/powerline/scripts # Powerline executable
 
 export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
