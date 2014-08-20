@@ -100,6 +100,7 @@
 		autocmd FileType cpp setlocal softtabstop=4 tabstop=4 shiftwidth=4 noexpandtab colorcolumn=81
 		autocmd Syntax cpp call EnhanceCppSyntax()
 
+		" Set text width of Java files according to Google's coding style.
 		autocmd FileType java setlocal colorcolumn=100 tw=100
 
 		" wrap for markdown and text files
@@ -147,8 +148,8 @@
 	" }}
 
 	" Sparkup {{
-		let g:sparkupExecuteMapping='<c-w>'
-		let g:sparkupNextMapping='<c-m>'
+		" let g:sparkupExecuteMapping='<c-w>'
+		" let g:sparkupNextMapping='<c-m>'
 	" }}
 
 	" Syntastic {{
