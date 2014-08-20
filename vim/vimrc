@@ -118,6 +118,7 @@
 		autocmd FileType tex,plaintex setlocal wrap wrapmargin=2 textwidth=70 spell formatoptions+=l expandtab
 
 		autocmd FileType html setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
+		autocmd FileType javascript setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
 
 		autocmd FileType rfc setlocal wrap wrapmargin=2 textwidth=72 spell formatoptions+=l colorcolumn=73 softtabstop=3 tabstop=3 shiftwidth=3 expandtab
 
