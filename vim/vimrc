@@ -192,8 +192,6 @@
 
 	" nnoremap:
 	nnoremap <leader>g :GundoToggle<CR>
-	" Shortcut to StripTrailingWhitespaces function (see Functions below).
-	nnoremap <silent> <F7> :call <SID>StripTrailingWhitespaces()<CR>
 	" Map <Leader>c to toggle highlighting of the cursor line
 	nnoremap <Leader>c :set cursorline!<CR>
 	nnoremap <Leader>t :%s/\s\+$//g<CR>
@@ -204,6 +202,9 @@
     " This rewires n and N to a highlighing function.
 	nnoremap <silent> n   n:call HLNext(0.1)<cr>
 	nnoremap <silent> N   N:call HLNext(0.1)<cr>
+
+	" Strip trailing whitespace.
+	nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 	" Toggle Goyo (distraction free mode).
 	nnoremap <leader>V :Goyo<CR>
@@ -220,18 +221,6 @@
 " }}
 
 " Functions {{
-
-function! <SID>StripTrailingWhitespaces()
-	" save last search,		and cursor position.
-	let _s=@/
-	let l = line(".")
-	let c = col(".")
-	"_s Do the business:
-	%s/\s\+$//e
-	" Clean up: restore previous search history, and cursor position
-	let @/=_s
-	call cursor(l, c)
-endfunction
 
 " Add highlighting for function definition in C++
 function! EnhanceCppSyntax()
