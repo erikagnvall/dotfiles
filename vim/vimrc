@@ -124,7 +124,9 @@
 		autocmd FileType haskell setlocal tabstop=4 expandtab softtabstop=4 shiftwidth=4 smarttab shiftround nojoinspaces
 		autocmd FileType lhaskell setlocal tabstop=4 expandtab softtabstop=4 shiftwidth=4 smarttab shiftround nojoinspaces colorcolumn=80 textwidth=80
 
+		" Make Vim recognize .vimperatorrc and .pentadactylrc as vim config.
 		autocmd BufRead,BufNewFile .vimperatorrc set ft=vim
+		autocmd BufRead,BufNewFile .pentadactylrc set ft=vim
 
 		autocmd BufRead,BufNewFile bash_aliases,bash_ps1,.bash_aliases,.bash_ps1 set ft=sh
 	endif
