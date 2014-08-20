@@ -67,6 +67,7 @@
 	let g:airline_powerline_fonts = 1
 	set laststatus=2				" Always show statusline
 
+	let g:limelight_conceal_ctermfg = 10 " Set the fade out color of Limelight to a gray one.
 " }}
 
 " Searching {{
@@ -204,6 +205,9 @@
 	nnoremap <silent> n   n:call HLNext(0.1)<cr>
 	nnoremap <silent> N   N:call HLNext(0.1)<cr>
 
+	" Toggle Goyo (distraction free mode).
+	nnoremap <leader>V :Goyo<CR>
+
 	" Turn off arrow keys.
 	map <up> <nop>
 	map <down> <nop>
@@ -247,6 +251,27 @@ function! HLNext (blinktime)
 	call matchdelete(ring)
 	redraw
 endfunction
+
+" Called when entering Goyo to customize stuff.
+function! s:goyo_enter()
+	silent !tmux set status off
+	set scrolloff=999
+	Limelight
+endfunction
+
+" Called when exiting Goyo to reset stuff.
+function! s:goyo_leave()
+	set scrolloff=3
+	silent !tmux set status on
+	:AirlineToggle
+	:AirlineToggle
+	Limelight!
+endfunction
+
+autocmd! User GoyoEnter
+autocmd! User GoyoLeave
+autocmd  User GoyoEnter call <SID>goyo_enter()
+autocmd  User GoyoLeave call <SID>goyo_leave()
 
 " }}
 

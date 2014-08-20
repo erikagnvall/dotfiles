@@ -17,3 +17,5 @@ git://github.com/sjl/gundo.vim.git
 git://github.com/tpope/vim-rails.git
 git://github.com/bling/vim-airline
 git://github.com/wting/rust.vim.git
+git://github.com/junegunn/limelight.vim.git
+git://github.com/junegunn/goyo.vim.git
