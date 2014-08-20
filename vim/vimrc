@@ -215,6 +215,9 @@
 	" Toggle Goyo (distraction free mode).
 	nnoremap <leader>V :Goyo<CR>
 
+	" Enable writing to write protected files with :sudow.
+	cnoremap sudow w !sudo tee % >/dev/null
+
 	" Turn off arrow keys.
 	map <up> <nop>
 	map <down> <nop>
