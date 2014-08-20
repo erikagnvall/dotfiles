@@ -257,6 +257,8 @@ function! s:goyo_enter()
 	silent !tmux set status off
 	set scrolloff=999
 	Limelight
+	" Resize the Goyo window to the current textwidth.
+	Goyo &textwidth
 endfunction
 
 " Called when exiting Goyo to reset stuff.
