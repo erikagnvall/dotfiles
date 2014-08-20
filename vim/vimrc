@@ -209,6 +209,9 @@
 	" Strip trailing whitespace.
 	nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
+	" Reselect pasted text
+	nnoremap <leader>v V`]
+
 	" Toggle Goyo (distraction free mode).
 	nnoremap <leader>V :Goyo<CR>
 
