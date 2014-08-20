@@ -154,6 +154,7 @@
 
 	" Syntastic {{
 		let g:syntastic_java_javac_classpath = '/Users/erik/Dropbox/lth/d4/edin01/project1/program'
+		let g:syntastic_tex_checkers = ['chktex']
 	" }}
 " }}
 
