@@ -96,15 +96,15 @@
 		" reload vimrc when saving it
 		autocmd bufwritepost .vimrc source ~/.vimrc
 
-		autocmd FileType c setlocal softtabstop=8 tabstop=8 shiftwidth=8 noexpandtab colorcolumn=81
+		autocmd FileType c setlocal softtabstop=8 tabstop=8 shiftwidth=8 expandtab colorcolumn=81
 		autocmd FileType cpp setlocal softtabstop=4 tabstop=4 shiftwidth=4 noexpandtab colorcolumn=81
 		autocmd Syntax cpp call EnhanceCppSyntax()
 
 		" Set text width of Java files according to Google's coding style.
-		autocmd FileType java setlocal colorcolumn=100 tw=100
+		autocmd FileType java setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4 colorcolumn=100 tw=100
 
 		" wrap for markdown and text files
-		autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal wrap wrapmargin=2 textwidth=72
+		autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal wrap wrapmargin=2 textwidth=72 formatoptions+=a
 		autocmd FileType txt setlocal expandtab wrap textwidth=78
 
 		" Make Vim recognize json as JavaScript files
@@ -126,10 +126,13 @@
 		autocmd FileType haskell setlocal tabstop=4 expandtab softtabstop=4 shiftwidth=4 smarttab shiftround nojoinspaces
 		autocmd FileType lhaskell setlocal tabstop=4 expandtab softtabstop=4 shiftwidth=4 smarttab shiftround nojoinspaces colorcolumn=80 textwidth=80
 
+		autocmd FileType pdl2 setlocal tabstop=2 expandtab softtabstop=2 shiftwidth=2 smarttab
+		autocmd BufRead,BufNewFile *.pdl,*.lsv set ft=pdl2
 		" Make Vim recognize .vimperatorrc and .pentadactylrc as vim config.
 		autocmd BufRead,BufNewFile .vimperatorrc set ft=vim
 		autocmd BufRead,BufNewFile .pentadactylrc set ft=vim
 
+		autocmd BufRead,BufNewFile *.conf setlocal ft=conf
 		autocmd BufRead,BufNewFile bash_aliases,bash_ps1,.bash_aliases,.bash_ps1 set ft=sh
 	endif
 " }}
@@ -195,6 +198,10 @@
 	" Map F8 to running ant install
 	nmap <F8> :!ant launch<CR>
 
+	" TODO: Change the g:limelight_conceal_ctermfg color when using light
+	" background!
+	nmap <silent> <F5> :ToggleBG<cr>
+
 	" nnoremap:
 	nnoremap <leader>g :GundoToggle<CR>
 	" Map <Leader>c to toggle highlighting of the cursor line
@@ -207,6 +214,7 @@
     " This rewires n and N to a highlighing function.
 	nnoremap <silent> n   n:call HLNext(0.1)<cr>
 	nnoremap <silent> N   N:call HLNext(0.1)<cr>
+	nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 	" Strip trailing whitespace.
 	nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -223,8 +231,8 @@
 	" Turn off arrow keys.
 	map <up> <nop>
 	map <down> <nop>
-	map <left> <nop>
-	map <right> <nop>
+	map <left> gT
+	map <right> gt
 	imap <up> <nop>
 	imap <down> <nop>
 	imap <left> <nop>
@@ -258,7 +266,7 @@ function! s:goyo_enter()
 	set scrolloff=999
 	Limelight
 	" Resize the Goyo window to the current textwidth.
-	Goyo &textwidth
+	Goyo &textwidth + 1
 endfunction
 
 " Called when exiting Goyo to reset stuff.
