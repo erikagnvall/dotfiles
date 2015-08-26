@@ -285,3 +285,6 @@ autocmd  User GoyoLeave call <SID>goyo_leave()
 
 " }}
 
+if filereadable("~/.vimrc.local")
+	source ~/.vimrc.local
+endif
