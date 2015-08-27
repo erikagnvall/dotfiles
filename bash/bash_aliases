@@ -5,3 +5,5 @@ alias sorted_du="du -sk * | sort -nr | cut -f2 | tr '\n' '\0' | xargs -0 du -sh"
 # Tunnel stuff
 alias transmissiontunnel='ssh meldanya.se -L 9091:127.0.0.1:9091 -N'
 alias sshtunnel='ssh -D 8080 meldanya.se -N'
+
+source ~/.bash_aliases.local
