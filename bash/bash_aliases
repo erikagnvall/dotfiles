@@ -1,21 +1,6 @@
-# ssh aliases
-alias sshm='ssh -p 27148 meldanya.se'
-
-# mac specific aliases
-alias enabledashboard='defaults write com.apple.dashboard mcx-disabled -boolean NO'
-alias disdashboard='defaults write com.apple.dashboard mcx-disabled -boolean YES'
-alias showhidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
-alias hidehidden='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
-alias hibernate='sudo pmset -a hibernatemode'
-alias listhibernate='sudo pmset -g | grep hibernatemode'
-
 # shortcut commands
 alias vi='vim'
 alias sorted_du="du -sk * | sort -nr | cut -f2 | tr '\n' '\0' | xargs -0 du -sh"
-alias pgrep="ps aux | grep"
-
-# use matlab from terminal
-alias matlab='matlab -nodesktop -nojvm -nosplash'
 
 # Tunnel stuff
 alias transmissiontunnel='ssh meldanya.se -L 9091:127.0.0.1:9091 -N'
