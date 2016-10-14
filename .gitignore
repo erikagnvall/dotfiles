@@ -2,3 +2,4 @@ bundle
 pentadactyl/pentadactyl/info/
 .*.swp
 .*.swo
+vim/undo
