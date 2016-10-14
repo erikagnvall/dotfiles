@@ -1,29 +1,30 @@
 [user]
-	name        = Erik Jansson
-	email       = erikjansson90@gmail.com
+	name         = Erik Jansson
+	email        = erikjansson90@gmail.com
 [alias]
-	st          = status
-	ci          = commit
-	br          = branch
-	co          = checkout
-	unstage     = reset HEAD
-	ds          = diff --staged
-	ls          = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
-	lol         = log --graph --decorate --pretty=oneline --abbrev-commit
-	lola        = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	standup     = log --since '1 day ago' --oneline --author erikjansson90@gmail.com
-	graph       = log --graph --pretty=format':%C(auto)%h%C(auto)%d%Creset %s %C(green) [%an], %ar%Creset' --all
+	st           = status
+	ci           = commit
+	br           = branch
+	co           = checkout
+	unstage      = reset HEAD
+	ds           = diff --staged
+	ls           = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
+	lol          = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola         = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	standup      = log --since '1 day ago' --oneline --author erikjansson90@gmail.com
+	graph        = log --graph --pretty=format':%C(auto)%h%C(auto)%d%Creset %s %C(green) [%an], %ar%Creset' --all
 [color]
-	branch      = auto
-	diff        = auto
-	interactive = auto
-	status      = auto
+	branch       = auto
+	diff         = auto
+	interactive  = auto
+	status       = auto
 [core]
-	editor      = vim
+	editor       = vim
+	excludesfile = ~/.gitignore
 [push]
-	default = simple
+	default      = simple
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+	clean        = git-media-clean %f
+	smudge       = git-media-smudge %f
 [diff]
-	algorithm = patience
+	algorithm    = patience
