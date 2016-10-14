@@ -1,12 +1,48 @@
+" vi: foldmarker={{,}} foldmethod=marker foldlevel=0: tabstop=4:
 
-" Modeline {{
-"	 vi: foldmarker={{,}} foldmethod=marker foldlevel=0: tabstop=4:
+
+" Don't be compatible with old Vim
+set nocompatible
+" Required while initializing Vundle
+filetype off
+
+
+" Vundle {{
+" Append runtimepath for Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+" Let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+
+" Check if I really need this
+" Plugin 'tpope/vim-markdown'
+
+Plugin 'ddollar/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/syntastic'
+Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-surround'
+Plugin 'sjl/gundo.vim'
+Plugin 'bling/vim-airline'
+Plugin 'msanders/snipmate.vim'
+Plugin 'junegunn/limelight.vim'
+Plugin 'junegunn/goyo.vim'
+Plugin 'mtth/scratch.vim'
+
+" Do I need this?
+Plugin 'tfnico/vim-gradle'
+call vundle#end()
+
 " }}
 
 " General {{
-	set nocompatible						" Don't be compatible with old Vim
-
-	call pathogen#infect()					" Pathogen requirements
 
 	filetype plugin indent on				" Enable file type specific stuff
 
