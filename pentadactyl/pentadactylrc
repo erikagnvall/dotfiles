@@ -43,4 +43,5 @@
 
 " Custom commands
 command -desc "Read later on Pocket" pocket :open pocket
+command -desc "Add to Instapaper" insta :open instapaper
 command -desc "Queue in Plex" plexit :open plexit
