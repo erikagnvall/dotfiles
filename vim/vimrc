@@ -96,44 +96,12 @@
 		" reload vimrc when saving it
 		autocmd bufwritepost .vimrc source ~/.vimrc
 
-		autocmd FileType c setlocal softtabstop=8 tabstop=8 shiftwidth=8 expandtab colorcolumn=81
-		autocmd FileType cpp setlocal softtabstop=4 tabstop=4 shiftwidth=4 noexpandtab colorcolumn=81
-		autocmd Syntax cpp call EnhanceCppSyntax()
-
-		" Set text width of Java files according to Google's coding style.
-		autocmd FileType java setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4 colorcolumn=100 tw=100
-
-		" wrap for markdown and text files
-		autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal wrap wrapmargin=2 textwidth=72 formatoptions+=a
-		autocmd FileType txt setlocal expandtab wrap textwidth=78
-
-		" Make Vim recognize json as JavaScript files
-		autocmd BufNewFile,BufRead *.json set ft=javascript
-
-		" make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-		autocmd FileType python setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
-
-		" make uses real hard tabs or it will break so make sure it's set
-		autocmd FileType make setlocal noexpandtab
-
-		autocmd FileType tex,plaintex setlocal wrap wrapmargin=2 textwidth=70 spell formatoptions+=l expandtab
-
-		autocmd FileType html setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
-		autocmd FileType javascript setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
-
-		autocmd FileType rfc setlocal wrap wrapmargin=2 textwidth=72 spell formatoptions+=l colorcolumn=73 softtabstop=3 tabstop=3 shiftwidth=3 expandtab
-
-		autocmd FileType haskell setlocal tabstop=4 expandtab softtabstop=4 shiftwidth=4 smarttab shiftround nojoinspaces
-		autocmd FileType lhaskell setlocal tabstop=4 expandtab softtabstop=4 shiftwidth=4 smarttab shiftround nojoinspaces colorcolumn=80 textwidth=80
-
-		autocmd FileType pdl2 setlocal tabstop=2 expandtab softtabstop=2 shiftwidth=2 smarttab
+		" Make Vim recognize PDL2 files.
 		autocmd BufRead,BufNewFile *.pdl,*.lsv set ft=pdl2
+
 		" Make Vim recognize .vimperatorrc and .pentadactylrc as vim config.
 		autocmd BufRead,BufNewFile .vimperatorrc set ft=vim
 		autocmd BufRead,BufNewFile .pentadactylrc set ft=vim
-
-		autocmd BufRead,BufNewFile *.conf setlocal ft=conf
-		autocmd BufRead,BufNewFile bash_aliases,bash_ps1,.bash_aliases,.bash_ps1 set ft=sh
 	endif
 " }}
 
@@ -240,12 +208,6 @@
 " }}
 
 " Functions {{
-
-" Add highlighting for function definition in C++
-function! EnhanceCppSyntax()
-	syn match cppFuncDef "::\~\?\zs\h\w*\ze([^)]*\()\s*\(const\)\?\)\?$"
-	hi def link cppFuncDef Special
-endfunction
 
 
 " Highlight a search match in red...
