@@ -1,9 +1,10 @@
 [user]
-	name         = Erik Jansson
-	email        = erikjansson90@gmail.com
+	name         = Erik Agnvall
+	email        = erik.jansson@cognibotics.com
 [alias]
 	st           = status
 	ci           = commit
+	dc           = diff --cached
 	br           = branch
 	co           = checkout
 	unstage      = reset HEAD
@@ -19,7 +20,7 @@
 	interactive  = auto
 	status       = auto
 [core]
-	editor       = vim
+	editor       = nvim
 	excludesfile = ~/.gitignore
 [push]
 	default      = simple
