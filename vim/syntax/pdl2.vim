@@ -54,9 +54,9 @@ syn keyword     pdl2Conditional     IF THEN ELSE ENDIF
 hi def link     pdl2Conditional     Conditional
 
 " Types
-syn keyword     pdl2Type            INTEGER ARRAY BOOLEAN JOINTPOS
-syn keyword     pdl2Type            POSITION REAL SEMAPHORE VECTOR VEC
-syn keyword     pdl2Type            XTNDPOS STRING RECORD ENDRECORD
+syn keyword     pdl2Type            INTEGER INT ARRAY ARR BOOLEAN BOO JOINTPOS
+syn keyword     pdl2Type            POSITION REAL REA SEMAPHORE VECTOR VEC
+syn keyword     pdl2Type            XTNDPOS STRING STR RECORD REC ENDRECORD
 syn keyword     pdl2Type            ENDNODEDEF NODEDEF
 
 hi def link     pdl2Type            Type
@@ -99,4 +99,4 @@ syn match       pdl2Global          "\$\w\+"
 hi def link     pdl2Global          Function
 
 syn keyword     pdl2Boolean         TRUE FALSE ON OFF
-hi def link     pdl2Boolean         Function
+hi def link     pdl2Boolean         Boolean

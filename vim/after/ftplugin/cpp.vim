@@ -1,5 +1,5 @@
-setlocal softtabstop=4
-setlocal tabstop=4
-setlocal shiftwidth=4
-setlocal noexpandtab
+setlocal softtabstop=8
+setlocal tabstop=8
+setlocal shiftwidth=8
+setlocal expandtab
 setlocal colorcolumn=81
