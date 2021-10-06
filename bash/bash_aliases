@@ -1,5 +1,6 @@
 # shortcut commands
 alias vi='vim'
+alias vim='nvim'
 alias sorted_du="du -sk * | sort -nr | cut -f2 | tr '\n' '\0' | xargs -0 du -sh"
 
 # Tunnel stuff
